@@ -1,6 +1,7 @@
 import pino from 'pino'
+
 import { env } from '../config/env'
-import { getRequestContext } from './requestContext'
+import { getRequestContext } from './request-context'
 
 export const baseLogger = pino({
   level: env.NODE_ENV === 'production' ? 'info' : 'debug',
@@ -12,5 +13,7 @@ export const baseLogger = pino({
 
 export const getLogger = () => {
   const ctx = getRequestContext()
-  return ctx ? baseLogger.child({ requestId: ctx.requestId, userId: ctx.userId }) : baseLogger
+  return ctx
+    ? baseLogger.child({ requestId: ctx.requestId, userId: ctx.userId })
+    : baseLogger
 }
