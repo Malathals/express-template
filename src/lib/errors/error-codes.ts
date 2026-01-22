@@ -1,4 +1,4 @@
-export const ErrorCode = {
+export const ErrorCodes = {
   VALIDATION: 'VALIDATION',
   NOT_FOUND: 'NOT_FOUND',
   UNAUTHORIZED: 'UNAUTHORIZED',
@@ -6,6 +6,7 @@ export const ErrorCode = {
   CONFLICT: 'CONFLICT',
   RATE_LIMITED: 'RATE_LIMITED',
   INTERNAL: 'INTERNAL',
+  BAD_REQUEST: 'BAD_REQUEST'
 } as const
 
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode]
+export type ErrorCode = (typeof ErrorCodes)[keyof typeof ErrorCodes]
